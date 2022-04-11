@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test2">
         <activity
+            android:name=".FeaturesActivity"
+            android:exported="false" />
+        <activity
             android:name=".SecondActivity"
             android:exported="false" />
         <activity

@@ -2,6 +2,8 @@ package eu.fastapps.test2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.UiModeManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +14,8 @@ public class SecondActivity extends AppCompatActivity {
     TextView textCat;
 
     Button button;
+
+    boolean darkMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

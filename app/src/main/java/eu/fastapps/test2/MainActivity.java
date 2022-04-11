@@ -1,9 +1,13 @@
 package eu.fastapps.test2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.UiModeManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,9 +16,18 @@ public class MainActivity extends AppCompatActivity {
     TextView textView2;
     Button button1;
     Button button2;
+    Button button3;
+
+    boolean darkMode = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        UiModeManager uiManager = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
+        Log.i("MainActivity", "onCreate uiManager.getNightMode() = " + uiManager.getNightMode());
+
+
         setContentView(R.layout.activity_main);
 
 
@@ -26,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         button2.setOnClickListener(
                 (b) -> OnButton2Clicked()
+        );
+
+        button3 = findViewById(R.id.button3);
+        button3.setOnClickListener(
+                (b) -> OnButton3Clicked()
         );
 
         textView = findViewById(R.id.textView1);
@@ -47,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
 
+    }
+
+    void OnButton3Clicked(){
+        Intent intent = new Intent(this, FeaturesActivity.class);
+        startActivity(intent);
     }
 
 }
